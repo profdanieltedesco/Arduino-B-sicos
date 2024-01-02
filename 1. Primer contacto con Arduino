@@ -1,0 +1,29 @@
+
+/*código inicial "Hola mundo" en Arduino.
+**DESAFIO 1:
+-¿Cómo variarías la intensidad y el parpadeo del led?
+**DESAFIO 2:
+-Agregar otro led
+-Crear un código para encender ámbos en forma paralela
+-Crear otro código para encender ámbos en forma desigual
+***DESAFIO 3:
+-Agregar un tercer led y formar un semáforo
+-Crear un código para que funcione el semáforo
+Prof. Daniel Tedesco */
+
+// C++ code
+
+int rojo = 13; //asignamos nombre y pin al led
+
+void setup()
+{
+  pinMode(rojo, OUTPUT); //configiramos el pin como salida
+}
+
+void loop()
+{
+  digitalWrite(rojo, HIGH); //encendemos el led rojo
+  delay(1000); // retardo de 1000 milisegundos
+  digitalWrite(rojo, LOW); //apagamos el led rojo
+  delay(1000); // retardo de 1000 milisegundos
+}
