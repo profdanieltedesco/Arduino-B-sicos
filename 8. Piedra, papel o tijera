@@ -1,0 +1,68 @@
+/* Juego de piedra, papel o tijera, con pulsadores
+Prof. Daniel Tedesco*/
+
+const int PIEDRA = 2;
+const int PAPEL = 3;
+const int TIJERA = 4;
+
+const int BUZZER = 5;
+const int PULSADOR = 6;
+
+int azar=0;
+
+void setup()
+{
+  pinMode(PIEDRA, OUTPUT);
+  pinMode(PAPEL, OUTPUT);
+  pinMode(TIJERA, OUTPUT);
+
+  pinMode(PULSADOR, INPUT_PULLUP);
+  randomSeed(analogRead(A0));
+}
+
+void loop()
+{
+  if(digitalRead(PULSADOR)==LOW)
+  {
+    activacion_leds();
+    activacion_leds();
+    activacion_leds(); 
+    azar=random(1,4);
+      
+    if(azar==1)
+    {
+       digitalWrite(PIEDRA,HIGH);
+       tone(BUZZER,600,300);
+      delay(5000);
+      digitalWrite(PIEDRA,LOW);
+    }
+    if(azar==2)
+    {
+       digitalWrite(PAPEL,HIGH);
+       tone(BUZZER,600,300);
+      delay(5000);
+      digitalWrite(PAPEL,LOW);
+    }
+    if(azar==3)
+    {
+      digitalWrite(TIJERA,HIGH);
+       tone(BUZZER,600,300);
+      delay(5000);
+      digitalWrite(TIJERA,LOW);
+    }
+  }
+ 
+}
+
+void activacion_leds()
+{
+    digitalWrite(PIEDRA,HIGH);
+    digitalWrite(PAPEL,HIGH);
+    digitalWrite(TIJERA,HIGH);
+    tone(BUZZER,400,100);
+    delay(500);
+    digitalWrite(PIEDRA,LOW);
+    digitalWrite(PAPEL,LOW);
+    digitalWrite(TIJERA,LOW);
+    delay(500);
+}
