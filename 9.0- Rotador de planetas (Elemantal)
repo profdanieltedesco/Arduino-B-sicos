@@ -1,0 +1,29 @@
+/*Programa que realiza un giro completo en sentido horario o antihorario de un motor paso a paso con driver UNL2003A.
+ Para girar en un único sentido, incluír en Void Loop solamente Motorcito.step(PasosGiro)
+ Para girar en ambos sentidos, incluír:
+ Motorcito.step(PasosGiro) Horario (incluír delay)
+ Motorcito.step(-PasosGiro)Antihorario (incluír delay)
+ Para variar la velocidad del motor modifcar la variable VelMotor en un rango de 1 a 12.
+ Prof. Daniel Tedesco
+ */
+
+#include <Stepper.h> // Inckuír la librería externa <Stepper.h>
+int PasosGiro = 2048; //Indicar la cantidad de pasos que dará el motor
+int VelMotor = 2; //Velocidad de rotación (1-12)
+Stepper Motorcito(PasosGiro,8,10,9,11); // Nombrar motor e indicar los pines
+int dt = 1500; // DelayTime, tiempo de espera en milisegundos
+
+void setup() {
+  
+  Motorcito.setSpeed(VelMotor); //Setear la velocidad del motor
+  
+}
+
+void loop() {
+  
+  Motorcito.step(PasosGiro);//Indicar la cantidad de pasos a girar
+  delay(dt);//Borrar a partir de acá si se quiere un giro completo
+  Motorcito.step(-PasosGiro);//Giro en sentido antihorario
+  delay(dt);
+  
+}
