@@ -1,0 +1,35 @@
+
+/*Código para led RGB o módulo led RGB.
+**DESAFIO 1:
+-¿Cómo apagarías el led en color blanco?
+**DESAFIO 2:
+¿Cómo crearías una secuencia de colores Blanco,
+rojo, verde y azul?
+***DESAFIO 3:
+¿Cócmo crearías colores estridentes o no convencionales?
+puedes buscar colores en: https://htmlcolorcodes.com/es/
+Prof. Daniel Tedesco */
+
+// C++ code
+
+int led_verde = 5;
+int led_azul = 3;
+int led_rojo = 6;
+
+
+void setup()
+{
+pinMode (led_verde, OUTPUT);
+pinMode (led_azul, OUTPUT); 
+pinMode (led_rojo, OUTPUT); 
+  
+}
+
+void loop()
+{
+ analogWrite(led_verde,255);
+ analogWrite(led_azul, 255);
+ analogWrite(led_rojo, 255);
+ delay(1000);
+ 
+ } 
