@@ -1,0 +1,39 @@
+/*Fotoresistencia con IF:
+
+En el funcionamiento de la estructura IF se dan las siguientes 
+condiciones: 
+if (Condición){
+Acción 1}
+else {
+Acción 2}
+
+Prof. Daniel Tedesco */
+
+int sensor = A0;
+int rojo = 8;
+int amarillo = 9;
+int verde = 10;
+int lectura;
+
+void setup() {
+ Serial.begin(9600);
+ pinMode(rojo, OUTPUT);
+  pinMode(amarillo, OUTPUT);
+   pinMode(verde, OUTPUT);
+
+}
+
+void loop() {
+ lectura = analogRead(sensor);
+ Serial.println(lectura);
+ if (lectura <300) {
+  digitalWrite( rojo, HIGH);
+  digitalWrite( amarillo, HIGH);
+  digitalWrite( verde, HIGH);
+ }
+else {
+  digitalWrite( rojo, LOW);
+  digitalWrite( amarillo, LOW);
+  digitalWrite( verde, LOW);
+}
+}
