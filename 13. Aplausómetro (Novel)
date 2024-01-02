@@ -1,0 +1,19 @@
+/* Aplausómetro con LED 
+Prof. Daniel Tedesco */
+
+int led = 9;
+int sensor = 2;
+
+void setup() {
+pinMode(led, OUTPUT);
+pinMode(sensor, INPUT);
+
+}
+
+void loop() {
+while(digitalRead(sensor)==LOW);
+digitalWrite(led, !digitalRead(led));
+while(digitalRead(sensor)==HIGH);
+
+
+}
